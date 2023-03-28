@@ -4,8 +4,8 @@
 <button (click)='addProduct()'>Add a Product</button>
 
 <div class='product' *ngFor = 'let product of products'>
-    {{product.title}}
-      {{product.brand}} | Rating: {{product.rating}}
+    {{product.title}} | {{product.brand}} | Rating: {{product.rating}}
+    <button (click)='deleteProduct(product)'>Delete</button>
 </div>
 
 

@@ -26,4 +26,10 @@ export class ApiService {
     return this.http.post(url, obj)
    }
 
+   deleteProduct(product:any){
+     const id = product.id
+     const url = `${this.api}/products/${id}`
+     return this.http.delete(url)
+   }
+
 }

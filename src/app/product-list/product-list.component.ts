@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { BehaviorSubject } from 'rxjs';
+//import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -23,5 +24,14 @@ export class ProductListComponent {
   addProduct() {
     this.router.navigate(['/add-product'])
   }
+
+  deleteProduct(product:any){
+    this.apiService.deleteProduct(product)
+      .subscribe(data => {
+        console.log(data)
+      })
+  }
+
+
 
 }
