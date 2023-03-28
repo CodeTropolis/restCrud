@@ -19,4 +19,11 @@ export class ApiService {
       return this.http.get(`${this.api}/products/${id}`)
     }
 
+   addProduct(){
+    const httpOptions = { 'Content-Type': 'application/json' }
+    const obj = {title: 'The Next Best Thing!'}
+    const url = `${this.api}/products/add`
+    return this.http.post(url, obj)
+   }
+
 }
