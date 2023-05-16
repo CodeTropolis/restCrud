@@ -5,6 +5,7 @@
 
 <div class='product' *ngFor = 'let product of products'>
     {{product.title}} | {{product.brand}} | Rating: {{product.rating}}
+    <button (click)='updateProduct(product)'>Update</button>
     <button (click)='deleteProduct(product)'>Delete</button>
 </div>
 

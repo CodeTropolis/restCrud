@@ -11,25 +11,33 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-    getAllProducts(): Observable<any>{
-      return this.http.get(`${this.api}/products`)
-    }
-    
-    get(id:number) {
-      return this.http.get(`${this.api}/products/${id}`)
-    }
+  getAllProducts(): Observable<any> {
+    return this.http.get(`${this.api}/products`)
+  }
 
-   addProduct(){
-    const httpOptions = { 'Content-Type': 'application/json' }
-    const obj = {title: 'The Next Best Thing!'}
+  get(id: number) {
+    return this.http.get(`${this.api}/products/${id}`)
+  }
+
+  addProduct() {
+    //const httpOptions = { 'Content-Type': 'application/json' }
+    const obj = { title: 'The Next Best Thing!' }
     const url = `${this.api}/products/add`
     return this.http.post(url, obj)
-   }
+  }
 
-   deleteProduct(product:any){
-     const id = product.id
-     const url = `${this.api}/products/${id}`
-     return this.http.delete(url)
-   }
+  updateProduct(product: any) {
+    const id = product.id
+    const url = `${this.api}/products/${id}`
+    const update: any = { title: 'The Updated Title' }
+    return this.http.patch(url, update)
+  }
+
+  deleteProduct(product: any) {
+    const id = product.id
+    const url = `${this.api}/products/${id}`
+    return this.http.delete(url)
+  }
+
 
 }
